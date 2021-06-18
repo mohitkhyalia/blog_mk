@@ -18,6 +18,10 @@ def signi():
 @app.route('/blog/kali-install')
 def kali():
     return(render_template('ins-kali.html'))
+
+@app.route('/blog/phishing')
+def phis():
+    return(render_template('phi-blo.html'))
     
 @app.route('/done', methods=['GET','POST'])
 def done():
