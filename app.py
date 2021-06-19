@@ -22,6 +22,10 @@ def kali():
 @app.route('/blog/phishing')
 def phis():
     return(render_template('phi-blo.html'))
+
+@app.route('/blog/tool-x')
+def phis():
+    return(render_template('tool-x.html'))
     
 @app.route('/done', methods=['GET','POST'])
 def done():
