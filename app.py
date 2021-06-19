@@ -24,7 +24,7 @@ def phis():
     return(render_template('phi-blo.html'))
 
 @app.route('/blog/tool-x')
-def phis():
+def tool():
     return(render_template('tool-x.html'))
     
 @app.route('/done', methods=['GET','POST'])
