@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Login form</h1>
+    <form method="POST">
+        {% csrf_token%}
+        <input  placeholder='username' type="text" name="username">
+        <input type="password" placeholder='password' name="password">
+        <button type="submit">login</button>
+    </form>
+    {% for a in messages%}
+    <p>{{a}}</p>
+    {% endfor %}
+    <a  href="{% url 'signup' %}">Signup</a>-->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+</head>
+<body>
+    
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+        <img src="{% static 'PicsArt_06-18-10.02.55.jpg' %}" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form method="POST">
+        {% csrf_token %}
+      <input type="text"  id='email' class="fadeIn second" name="email" placeholder="Email/Username">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type='text'  name='type' id='type' value='user' hidden>
+      <input id="login" type="submit" class="fadeIn fourth" value="Log In">
+
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="{% url 'forget' %}">Forgot Password?</a>
+      <a class="underlineHover" href="{% url 'signup' %}">Signup</a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
+<script>
+    function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+function validate() {
+  const $result = $("#result");
+  const email = $("#email").val();
+  if (validateEmail(email)){
+
+      $('#type').val('email')
+
+  }
+  
+}
+$("#login").on("click", validate);
+</script>
