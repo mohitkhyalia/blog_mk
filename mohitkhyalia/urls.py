@@ -19,5 +19,5 @@ from access import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('access.urls'))
+    path('',views.homepage,name='home')
 ]
